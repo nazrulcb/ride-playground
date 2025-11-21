@@ -1,11 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import PhoneInput from "react-phone-input-2";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 import { useAuth } from "@/app/context/authContext";
 
 export default function RegisterPage() {
-  const { register } = useAuth(); // <-- using register from context
+  const { register } = useAuth();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -19,10 +21,19 @@ export default function RegisterPage() {
     town: "",
     state: "",
     pincode: "",
+    country: "",
     password: "",
     confirmPassword: "",
     agree: false,
   });
+
+  // Generate country list
+  const countryOptions = useMemo(() => countryList().getData(), []);
+
+  // Country Change
+  const handleCountryChange = (value) => {
+    setFormData((prev) => ({ ...prev, country: value }));
+  };
 
   // Phone handler
   const handlePhoneChange = (value) => {
@@ -69,9 +80,7 @@ export default function RegisterPage() {
     }
 
     const token = "REGISTER_SUCCESS_TOKEN";
-
-    // Call register() from your AuthContext
-    register(token); // <-- will redirect instantly
+    register(token);
 
     console.log("Final Form Data:", formData);
   };
@@ -178,7 +187,7 @@ export default function RegisterPage() {
               {/* Town / State */}
               <div className="frm_grp">
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
+                  <img src="../images/map.png" alt="img" />
                   <input
                     type="text"
                     name="town"
@@ -188,7 +197,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
+                  <img src="../images/map.png" alt="img" />
                   <input
                     type="text"
                     name="state"
@@ -198,10 +207,10 @@ export default function RegisterPage() {
                 </div>
               </div>
 
-              {/* Pincode */}
+              {/* Pincode + Country */}
               <div className="frm_grp">
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
+                  <img src="../images/map.png" alt="img" />
                   <input
                     type="text"
                     name="pincode"
@@ -211,15 +220,19 @@ export default function RegisterPage() {
                 </div>
 
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
-                  <input type="text" disabled value="Australia" />
+                  <Select
+                    options={countryOptions}
+                    value={formData.country}
+                    onChange={handleCountryChange}
+                    placeholder="Select Country"
+                  />
                 </div>
               </div>
 
               {/* Password */}
               <div className="frm_grp">
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
+                  <img src="../images/lock2.png" alt="img" />
                   <input
                     type="password"
                     name="password"
@@ -229,7 +242,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div className="input_feild">
-                  <img src="../images/user.png" alt="img" />
+                  <img src="../images/lock2.png" alt="img" />
                   <input
                     type="password"
                     name="confirmPassword"

@@ -158,11 +158,19 @@ select:focus {
 }
 .regis_btn_area a {
 	color: #000;
-	background: #F1C542;
-	padding: 15px 30px;
-	display: inline-block;
+	background: #f1c542;
 	border-radius: 4px;
+	padding: 15px 30px;
 	font-size: 15px;
+	display: inline-block;
+	border: 1px solid transparent;
+	transition: ease-in-out 0.6s;
+}
+.regis_btn_area a:hover{
+	color: #fff;
+	background: transparent;
+	border: 1px solid #fff;
+	transition: ease-in-out 0.6s;
 }
 .login_left_area_inn img {
 	width: 300px;
@@ -225,13 +233,21 @@ select:focus {
 	margin: 0 0 0 7px;
 }
 .submt_btn input {
-	width: 100%;
-	height: 53px;
+	text-transform: uppercase;
+	cursor: pointer;
 	background: #f1c542;
 	border: 0;
 	border-radius: 6px;
+	width: 100%;
+	height: 53px;
 	font-size: 17px;
-	text-transform: uppercase;
+	border: 1px solid transparent;
+	transition: ease-in-out 0.6s;
+}
+.submt_btn input:hover {
+	background: #000;
+	border: 1px solid #000;
+	color: #fff;
 }
 .forgot_passw {
 	text-align: center;
@@ -718,9 +734,17 @@ select:focus {
 	align-items: center;
 	width: 360px;
 	height: 55px;
+	padding: 0 0 0 21px;
 	font-size: 17px;
 	display: flex;
-	padding: 0 0 0 21px;
+	border: 1px solid transparent;
+	transition: ease-in-out 0.6s;
+}
+.baner_content a:hover {
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	transition: ease-in-out 0.6s;
 }
 .baner_content a span {
 	background: #fff;
@@ -893,16 +917,23 @@ select:focus {
 	font-weight: 400;
 }
 .book_btn a {
-	width: 150px;
-	height: 45px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	cursor: pointer;
 	background: #f4c742;
 	border: 0;
 	border-radius: 6px;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 45px;
 	font-size: 15px;
-	cursor: pointer;
+	display: flex;
+	border: 1px solid transparent;
+	transition: ease-in-out 0.6s;
+}
+.book_btn a:hover{
+	border: 1px solid #000;
+	background: transparent;
+	transition: ease-in-out 0.6s;
 }
 .book_btn a img {
 	width: 9px;
@@ -1507,6 +1538,7 @@ select:focus {
 	margin: 0 0 48px;
 }
 .subscrip_body button {
+	cursor: pointer;
 	background: #fcce41;
 	border: 0;
 	border-radius: 50px;
@@ -1514,10 +1546,17 @@ select:focus {
 	align-items: center;
 	width: 150px;
 	height: 45px;
-	display: flex;
-	font-size: 14px;
 	padding: 0 0 0 26px;
-	cursor: pointer;
+	font-size: 14px;
+	display: flex;
+	border: 1px solid transparent;
+	transition: ease-in-out 0.6s;
+}
+.subscrip_body button:hover{
+	background: transparent;
+	border: 1px solid #fff;
+	transition: ease-in-out 0.6s;
+	color: #fff;
 }
 .subscrip_btn button span {
 	background: #fff;
