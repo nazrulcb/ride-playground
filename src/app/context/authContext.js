@@ -9,11 +9,16 @@ export function AuthProvider({ children }) {
   const router = useRouter();
 
   const [token, setToken] = useState();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Load token on first render
-  useEffect(() => {
-    const saved = localStorage.getItem("token");
-    if (saved) setToken(saved);
+useEffect(() => {
+    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    if (token) {
+      setUser({ token });
+    }
+    setLoading(false);
   }, []);
 
   // Login function
