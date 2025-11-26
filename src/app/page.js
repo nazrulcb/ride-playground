@@ -30,118 +30,101 @@ const aboutRef = useRef(null);
 
 
 
- useLayoutEffect(() => {
-    // Wait for DOM to render
-    const id = requestAnimationFrame(() => {
+useLayoutEffect(() => {
+  if (!pathname) return;
 
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  const ctx = gsap.context(() => {
 
+    // 🧹 Clean all old ScrollTriggers
+    ScrollTrigger.getAll().forEach(t => t.kill());
 
-gsap.from(".home_class_single", {
-        opacity: 0,
-        y: 40,
-        rotateX: 10,               // subtle 3D tilt
-        scale: 0.92,               // soft zoom
-        filter: "blur(10px)",      // smooth blur reveal
-        duration: 1.4,
-        ease: "power3.out",
-        stagger: {
-          amount: 1.2,            // overall timing
-          from: "start",          // top-to-bottom
-        },
-        scrollTrigger: {
-          trigger: ".all_home_class",
-          start: "top 80%",
-          end: "bottom 30%",
-          scrub: false,
-          once: true,             // animation plays once
-        },
-        onComplete: () => {
-          gsap.to(".home_class_single", { filter: "blur(0px)" });
-        }
-      });
+    // ========= HOME CLASS GRID =========
+    gsap.from(".home_class_single", {
+      opacity: 0,
+      y: 40,
+      scale: 0.92,
+      rotateX: 10,
+      filter: "blur(10px)",
+      duration: 1.3,
+      stagger: 0.18,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".all_home_class",
+        start: "top 110%",
+        once: true,
+      }
+    });
 
-
-
-      // --- Class Background ---
-gsap.from(".clas_bg_main", {
-  opacity: 0,
-  scale: 0.92,
-  y: 40,
-  //filter: "blur(20px) brightness(0.6)",
-  duration: 1.8,
-  ease: "power3.out",
+    // ========= BACKGROUND FLOAT =========
+// Smooth fade-in + continuous floating loop
+const floatingTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".clas_bg_main",
     start: "top 85%",
-    once: true,
-  },
-  onComplete: () => {
-    // Smooth floating premium effect
-    gsap.to(".clas_bg_main", {
-      y: -18,
-      scale: 0.96,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
+    once: true
   }
 });
 
-// Premium parallax tilt effect (micro movement)
-gsap.to(".clas_bg_main", {
-  rotateX: 1,
-  rotateY: -2,
-  duration: 4,
-  repeat: -1,
-  yoyo: true,
-  ease: "sine.inOut",
+// Entry reveal
+floatingTl.from(".clas_bg_main", {
+  opacity: 0,
+  scale: 1.1,
+  y: 40,
+  duration: 1.6,
+  ease: "power3.out",
 });
 
- 
- // IMAGE premium fade + slight zoom-out
-      gsap.from(".about_area_main_left img", {
-        opacity: 0,
-        scale: 1.15,
-        x: -80,
-        duration: 1.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".about_area_main_inner",
-          start: "top 75%",
-        },
-      });
+// Endless smooth float
+floatingTl.to(".clas_bg_main", {
+  y: "-=20",
+  scale: 1,
+  duration: 2,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut"
+});
 
-      // HEADINGS stagger with slide-up
-      gsap.from(".about_area_main_right h5, .about_area_main_right h2, .about_area_main_right h4", {
-        opacity: 0,
-        y: 40,
-        duration: 1.4,
-        ease: "power3.out",
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: ".about_area_main_inner",
-          start: "top 70%",
-          once: false,
-        },
-      });
+    // ========= ABOUT IMAGE =========
+    gsap.from(".about_area_main_left img", {
+      opacity: 0,
+      scale: 1.15,
+      x: -50,
+      duration: 1.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".about_area_main_inner",
+        start: "top 75%"
+      }
+    });
 
-      // OPTION BOXES — premium floating reveal
-      gsap.from(".single_aboutopt", {
-        opacity: 0,
-        y: 50,
-        duration: 1.3,
-        ease: "power2.out",
-        stagger: 0.25,
-        scrollTrigger: {
-          trigger: ".about_area_main_right",
-          start: "top 60%",
-          once: false,
-        },
-      });
+    // ========= ABOUT TEXT =========
+    gsap.from(".about_area_main_right h5, .about_area_main_right h2, .about_area_main_right h4", {
+      opacity: 0,
+      y: 40,
+      stagger: 0.15,
+      duration: 1.3,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".about_area_main_inner",
+        start: "top 70%"
+      }
+    });
 
-   gsap.from(".team_area_main_section_left h4, .team_area_main_section_left h2, .team_area_main_section_left p", {
+    // ========= OPTIONS BOX =========
+    gsap.from(".single_aboutopt", {
+      opacity: 0,
+      y: 60,
+      stagger: 0.25,
+      duration: 1.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about_area_main_right",
+        start: "top 65%"
+      }
+    });
+
+ // --- Team Section ---
+      gsap.from(".team_area_main_section_left h4, .team_area_main_section_left h2, .team_area_main_section_left p", {
         opacity: 0,
         y: 40,
         stagger: 0.18,
@@ -191,63 +174,40 @@ gsap.to(".clas_bg_main", {
         });
       });
 
-      // --- Testimonials Zoom-In ---
-      const testimonials = document.querySelectorAll(".testimonials_main_section");
-      if (testimonials.length) {
-        gsap.from(testimonials, {
-          scale: 2,
-          opacity: 0,
-          duration: 1.5,
-          transformOrigin: "center center",
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".testimonials_main_section",
-            start: "top 80%",
-            end: "top 40%",
-            toggleActions: "play none none reverse",
-            once: false,
-          },
-        });
+    // ========= TESTIMONIALS =========
+    gsap.from(".testimonials_main_section", {
+      scale: 1.2,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".testimonials_main_section",
+        start: "top 80%"
       }
-
-      // --- Services Zoom-In ---
-      const services = gsap.utils.toArray(".service_provide_area_single");
-      if (services.length) {
-        gsap.from(services, {
-          scale: 0.3,
-          opacity: 0,
-          duration: 1.2,
-          stagger: 0.3,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".service_provide_area_all",
-            start: "top 70%",
-            once: true
-          },
-        });
-      }
-
-
-
- 
-
-
-      // Refresh ScrollTrigger positions
-      ScrollTrigger.refresh();
     });
 
-    return () => cancelAnimationFrame(id);
+    // ========= SERVICES =========
+    gsap.from(".service_provide_area_single", {
+      scale: 0.3,
+      opacity: 0,
+      stagger: 0.25,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".service_provide_area_all",
+        start: "top 75%"
+      }
+    });
 
+    ScrollTrigger.refresh();
+  });
 
+  return () => {
+    ctx.revert();  // 🧽 clean GSAP + ScrollTrigger on route change
+    ScrollTrigger.clearScrollMemory();
+  };
 
-    
-
-
-
-
-
-
-  }, [pathname]);
+}, [pathname]);
 
 
 

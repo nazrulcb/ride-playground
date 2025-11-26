@@ -707,6 +707,8 @@ select:focus {
 }
 .home_main_slider {
 	position: relative;
+	height: 100vh;
+	overflow: hidden;
 }
 .baner_content a span img {
 	width: 13px;
@@ -837,13 +839,13 @@ select:focus {
 	top: 86%;
 }
 .main_marqee_area {
-	position: absolute;
-	bottom: 4px;
-	background: rgba(0, 0, 0, 0.6);
-	font-size: 36px;
 	color: #fff;
-	padding: 2px 0;
+	background: #0009;
 	width: 100%;
+	padding: 2px 0;
+	font-size: 36px;
+	position: absolute;
+	bottom: 0px;
 }
 .main_marqee_area h3 span {
 	color: #f4c742;
@@ -2324,28 +2326,6 @@ select:focus {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ============================= Responsive Css Start ================================ */
 
 @media screen and (max-width: 1540px) {
@@ -3647,6 +3627,16 @@ select:focus {
 .main_header, .header_inner_main {
 	padding: 0 15px;
 }
+.home_main_slider {
+	height: 64vh;
+}
+.main_marqee_area {
+	font-size: 25px;
+}
+.header_inner_main.sticky_header .head_logo a img, .main_header.sticky_header .head_logo a img {
+	width: 60px !important;
+	transition: all .6s ease-in-out;
+}
 .main_header.sticky_header {
 	height: 54px;
 }
@@ -3745,8 +3735,29 @@ select:focus {
 	padding: 3px 15px;
 } */
 .main_header, .header_inner_main {
-	padding: 8px 15px;
-	height: 58px;
+	height: 57px;
+	padding: 5px 15px;
+}
+.profile_dtl h3 {
+	font-size: 16px;
+}
+.profile_dtl p {
+	font-size: 12px;
+}
+.profile_img img {
+	width: 51px;
+	margin: 0 10px 0 0;
+}
+.srv_hovr_teat h3 {
+	padding: 7px 17px;
+	font-size: 14px;
+}
+.single_instractor {
+	height: 350px;
+}
+.single_instractor h2 {
+	font-size: 23px;
+	left: 11px;
 }
 .toogle_button {
 	cursor: pointer;
@@ -3880,11 +3891,9 @@ select:focus {
 .main_footer_area {
 	padding: 35px 15px 28px;
 }
+
 .foot_sing {
-	width: 100%;
-}
-.foot_sing {
-	width: 71%;
+	width: 61%;
 }
 .foot_sing h3 {
 	font-size: 18px;
@@ -4247,6 +4256,9 @@ select:focus {
 .testimonials_main_body_main .slick-arrow.slick-next {
 	left: 43%;
 }
+.foot_sing {
+	width: 65%;
+}
 .account_details_right_all h2 {
 	font-size: 18px;
 }
@@ -4280,6 +4292,13 @@ select:focus {
 @media screen and (max-width: 375px) {
 .joinchnl {
 	padding: 0 0 0 0;
+}
+.single_instractor h2 {
+	font-size: 18px;
+	left: 11px;
+}
+.foot_sing {
+	width: 68%;
 }
 .side_menu_inn {
 	top: 206px;
@@ -4352,6 +4371,9 @@ select:focus {
 @media screen and (max-width: 360px) {
 .baner_content h2 {
 	font-size: 50px;
+}
+.foot_sing {
+	width: 71%;
 }
 .class_history_main_single h3 {
 	font-size: 15px;
