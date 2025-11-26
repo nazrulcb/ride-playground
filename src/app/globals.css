@@ -3647,6 +3647,9 @@ select:focus {
 .main_header, .header_inner_main {
 	padding: 0 15px;
 }
+.main_header.sticky_header {
+	height: 54px;
+}
 .account_details_right_profilenmimg_main {
 	padding: 0 0 0px;
 }
@@ -3722,7 +3725,7 @@ select:focus {
 	padding: 32px 0 5px;
 }
 .head_logo a img {
-	width: 70px;
+	width: 70px !important;
 }
 .head_prof_name {
 	display: none;
@@ -3738,8 +3741,12 @@ select:focus {
 	height: 40px;
 	left: 13px;
 }
+/* .header_inner_main {
+	padding: 3px 15px;
+} */
 .main_header, .header_inner_main {
 	padding: 8px 15px;
+	height: 58px;
 }
 .toogle_button {
 	cursor: pointer;
