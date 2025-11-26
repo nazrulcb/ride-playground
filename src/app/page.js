@@ -8,8 +8,10 @@ import TestimonialsSlider from "./component/testimonialsSlider";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation"; // detect page change
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 export default function Home() {
 
@@ -24,12 +26,16 @@ const pathname = usePathname(); // triggers on page change
     { img: "/images/team3.jpg", name: "Emily" },
   ];
 
+const aboutRef = useRef(null);
+
+
 
  useLayoutEffect(() => {
     // Wait for DOM to render
     const id = requestAnimationFrame(() => {
 
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
 
 gsap.from(".home_class_single", {
         opacity: 0,
@@ -178,8 +184,8 @@ gsap.to(".clas_bg_main", {
           delay: i * 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".team_area_main_section_right",
-            start: "top 70%",
+            trigger: ".team_area_main_section_inner",
+            start: "top 90%",
             once: true
           }
         });
@@ -216,7 +222,7 @@ gsap.to(".clas_bg_main", {
           scrollTrigger: {
             trigger: ".service_provide_area_all",
             start: "top 70%",
-            toggleActions: "play reverse play reverse",
+            once: true
           },
         });
       }
@@ -242,8 +248,6 @@ gsap.to(".clas_bg_main", {
 
 
   }, [pathname]);
-
-
 
 
 
@@ -334,7 +338,7 @@ gsap.to(".clas_bg_main", {
                 <div className="about_area_main_left">
                     <img src='../images/about_img.png' alt='img' />
                 </div>
-                <div className="about_area_main_right">
+                <div className="about_area_main_right" ref={aboutRef}>
                   <h5>Welcome</h5>
                   <h2>Rhythm <span>Ride</span></h2>
                   <h4>Ride Regularly <span>Stay Healthy</span></h4>

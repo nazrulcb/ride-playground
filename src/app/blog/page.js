@@ -9,115 +9,128 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Blog() {
 
-const pathname = usePathname();
+  const pathname = usePathname();
 
   useLayoutEffect(() => {
-    // Wait for DOM to render
     const id = requestAnimationFrame(() => {
 
-      // Kill previous ScrollTrigger instances to avoid duplicates
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-      // --- Blog Cards Animation ---
-      const blogCards = document.querySelectorAll(".blog_page_main_single");
-      if (blogCards.length) {
-        gsap.from(blogCards, {
-          x: 200,        // slide from right
-          opacity: 0,    // fade in
-          duration: 1.2,
-          stagger: 0.25,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".blog_page_main_all",
-            start: "top 70%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
+      gsap.to(".blog_detl_img", {
+        x: 50,               // move 30px to right
+        duration: 3,         // total duration of one cycle
+        ease: "sine.inOut",   // smooth easing
+        repeat: -1,           // infinite
+        yoyo: true,           // move back and forth
         });
-      }
 
-      // Refresh ScrollTrigger after setup
+      const cards = document.querySelectorAll(".blog_page_main_single");
+
+      cards.forEach((card) => {
+
+        const img = card.querySelector("img");
+        const heading = card.querySelector(".blog_heading h3");
+        const meta = card.querySelectorAll(".blog_cret_date p");
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: "top 120%",
+            toggleActions: "play none none reverse",
+          }
+        });
+
+        tl.from(card, {
+          opacity: 0,
+          y: 80,
+          duration: 0.8,
+          ease: "power3.out",
+        })
+          .from(img, {
+            opacity: 0,
+            scale: 1.2,
+            duration: 0.7,
+            ease: "power2.out",
+          }, "-=0.4")
+          .from(heading, {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          }, "-=0.4")
+          .from(meta, {
+            y: 20,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.45,
+            ease: "power2.out",
+          }, "-=0.3");
+
+      });
+
       ScrollTrigger.refresh();
     });
 
     return () => cancelAnimationFrame(id);
-
   }, [pathname]);
-
-
-
-
-
 
   return (
     <>
-       <section className='blog_page_main_area'>
-            <div className='blog_page_main_area_inner'>
-                <h2>Latest Blog of this Week</h2>
-                <div className='blog_page_main_all'>
+      <section className='blog_page_main_area'>
+        <div className='blog_page_main_area_inner'>
+          <h2>Latest Blog of this Week</h2>
+          <div className='blog_page_main_all'>
 
 
-                    <div className='blog_page_main_single'>
-                        <img src='../images/blog1.png' alt='img' />
-                        <div className='blog_heading'>
-                            <h3>Achieving Peak Body Fitness with Purpose</h3>
-                        </div>
-                        <div className='blog_cret_date'>
-                            <p><img src='../images/user.png' alt='img' /> By : Admin</p>
-                            <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
-                        </div>
-                        <div className='blog_button'>
-                            <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
-                        </div>
-                    </div>
-
-                    <div className='blog_page_main_single'>
-                        <img src='../images/blog2.png' alt='img' />
-                        <div className='blog_heading'>
-                            <h3>Achieving Peak Body Fitness with Purpose</h3>
-                        </div>
-                        <div className='blog_cret_date'>
-                            <p><img src='../images/user.png' alt='img' /> By : Admin</p>
-                            <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
-                        </div>
-                        <div className='blog_button'>
-                            <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
-                        </div>
-                    </div>
-
-                    <div className='blog_page_main_single'>
-                        <img src='../images/blog3.png' alt='img' />
-                        <div className='blog_heading'>
-                            <h3>Achieving Peak Body Fitness with Purpose</h3>
-                        </div>
-                        <div className='blog_cret_date'>
-                            <p><img src='../images/user.png' alt='img' /> By : Admin</p>
-                            <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
-                        </div>
-                        <div className='blog_button'>
-                            <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
-                        </div>
-                    </div>
-
-                    <div className='blog_page_main_single'>
-                        <img src='../images/blog4.png' alt='img' />
-                        <div className='blog_heading'>
-                            <h3>Achieving Peak Body Fitness with Purpose</h3>
-                        </div>
-                        <div className='blog_cret_date'>
-                            <p><img src='../images/user.png' alt='img' /> By : Admin</p>
-                            <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
-                        </div>
-                        <div className='blog_button'>
-                            <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
-                        </div>
-                    </div>
-
-
-                </div>
+            <div className='blog_page_main_single'>
+              <img src='../images/blog1.png' alt='img' />
+              <div className='blog_heading'>
+                <h3>Achieving Peak Body Fitness with Purpose</h3>
+              </div>
+              <div className='blog_cret_date'>
+                <p><img src='../images/user.png' alt='img' /> By : Admin</p>
+                <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
             </div>
-            <img className='blog_detl_img' src='../images/bd_cyc.png' alt='img' />
-       </section>
+
+            <div className='blog_page_main_single'>
+              <img src='../images/blog2.png' alt='img' />
+              <div className='blog_heading'>
+                <h3>Achieving Peak Body Fitness with Purpose</h3>
+              </div>
+              <div className='blog_cret_date'>
+                <p><img src='../images/user.png' alt='img' /> By : Admin</p>
+                <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
+            </div>
+
+            <div className='blog_page_main_single'>
+              <img src='../images/blog3.png' alt='img' />
+              <div className='blog_heading'>
+                <h3>Achieving Peak Body Fitness with Purpose</h3>
+              </div>
+              <div className='blog_cret_date'>
+                <p><img src='../images/user.png' alt='img' /> By : Admin</p>
+                <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
+            </div>
+
+            <div className='blog_page_main_single'>
+              <img src='../images/blog4.png' alt='img' />
+              <div className='blog_heading'>
+                <h3>Achieving Peak Body Fitness with Purpose</h3>
+              </div>
+              <div className='blog_cret_date'>
+                <p><img src='../images/user.png' alt='img' /> By : Admin</p>
+                <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <img className='blog_detl_img' src='../images/bd_cyc.png' alt='img' />
+      </section>
     </>
   )
 }

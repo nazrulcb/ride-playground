@@ -26,40 +26,46 @@ const pathname = usePathname(); // triggers on page change
 
       // Kill previous triggers to avoid duplicates
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+// IMAGE premium fade + slight zoom-out
+      gsap.from(".about_area_main_left img", {
+        opacity: 0,
+        scale: 1.15,
+        x: -80,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about_area_main_inner",
+          start: "top 75%",
+        },
+      });
 
-      // --- About Options Right ---
-      const aboutOpts = document.querySelectorAll(".single_aboutopt");
-      if (aboutOpts.length) {
-        gsap.from(aboutOpts, {
-          opacity: 0,
-          y: 80,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".about_area_main_right",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+      // HEADINGS stagger with slide-up
+      gsap.from(".about_area_main_right h5, .about_area_main_right h2, .about_area_main_right h4", {
+        opacity: 0,
+        y: 40,
+        duration: 1.4,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".about_area_main_inner",
+          start: "top 70%",
+          once: false,
+        },
+      });
 
-      // --- About Area Left ---
-      const aboutLeft = document.querySelectorAll(".about_area_main_left");
-      if (aboutLeft.length) {
-        gsap.from(aboutLeft, {
-          opacity: 0,
-          x: -120,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".about_area_main_right",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+      // OPTION BOXES — premium floating reveal
+      gsap.from(".single_aboutopt", {
+        opacity: 0,
+        y: 50,
+        duration: 1.3,
+        ease: "power2.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: ".about_area_main_right",
+          start: "top 60%",
+          once: false,
+        },
+      });
 
       // --- Our Values Section ---
       const valueItems = document.querySelectorAll(".ourvalue_area_main_single");
@@ -73,28 +79,61 @@ const pathname = usePathname(); // triggers on page change
             trigger: ".ourvalue_area_main",
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none play none",
           },
         });
       }
 
       // --- Team Section ---
-      const teamCards = document.querySelectorAll(".team_instrat_all");
-      if (teamCards.length) {
-        gsap.from(teamCards, {
-          x: 200,
+      gsap.from(".team_area_main_section_left h4, .team_area_main_section_left h2, .team_area_main_section_left p", {
+        opacity: 0,
+        y: 40,
+        stagger: 0.18,
+        duration: 1.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".team_area_main_section",
+          start: "top 75%",
+          once: true
+        }
+      });
+
+      // MAIN IMAGE ON TOP (Ride Playground)
+      gsap.from(".rid_plgnd", {
+        opacity: 0,
+        scale: 1.15,
+        y: -50,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".team_area_main_section",
+          start: "top 80%",
+          once: true
+        },
+      });
+
+      // INSTRUCTOR CARDS
+      const cards = gsap.utils.toArray(".single_instractor");
+
+      cards.forEach((card, i) => {
+        // Random premium direction
+        const dir = i % 2 === 0 ? 80 : -80;
+
+        gsap.from(card, {
           opacity: 0,
-          duration: 1.2,
-          stagger: 0.25,
+          y: 60,
+          x: dir,
+          scale: 0.9,
+          duration: 1.3,
+          delay: i * 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".team_instrat_all",
-            start: "top 70%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
+            trigger: ".team_area_main_section_inner",
+            start: "top 90%",
+            once: true
+          }
         });
-      }
+      });
 
       // Refresh ScrollTrigger positions
       ScrollTrigger.refresh();

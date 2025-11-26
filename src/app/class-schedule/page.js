@@ -45,38 +45,67 @@ const scrollRef = useRef(null);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
       // --- Home Class Cards ---
-      const homeCards = document.querySelectorAll(".home_class_single");
-      if (homeCards.length) {
-        gsap.from(homeCards, {
-          opacity: 0,
-          y: 100,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".all_home_class",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+gsap.from(".home_class_single", {
+        opacity: 0,
+        y: 40,
+        rotateX: 10,               // subtle 3D tilt
+        scale: 0.92,               // soft zoom
+        filter: "blur(10px)",      // smooth blur reveal
+        duration: 1.4,
+        ease: "power3.out",
+        stagger: {
+          amount: 1.2,            // overall timing
+          from: "start",          // top-to-bottom
+        },
+        scrollTrigger: {
+          trigger: ".all_home_class",
+          start: "top 80%",
+          end: "bottom 30%",
+          scrub: false,
+          once: true,             // animation plays once
+        },
+        onComplete: () => {
+          gsap.to(".home_class_single", { filter: "blur(0px)" });
+        }
+      });
 
-      // --- Boxed ---
-      const boxedItems = document.querySelectorAll(".boxed");
-      if (boxedItems.length) {
-        gsap.from(boxedItems, {
-          opacity: 0,
-          y: -130,
-          duration: 1,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".boxed",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+
+
+      // --- Class Background ---
+gsap.from(".clas_bg_main", {
+  opacity: 0,
+  scale: 0.92,
+  y: 40,
+  //filter: "blur(20px) brightness(0.6)",
+  duration: 1.8,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".clas_bg_main",
+    start: "top 85%",
+    once: true,
+  },
+  onComplete: () => {
+    // Smooth floating premium effect
+    gsap.to(".clas_bg_main", {
+      y: -18,
+      scale: 0.96,
+      duration: 4,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }
+});
+
+// Premium parallax tilt effect (micro movement)
+gsap.to(".clas_bg_main", {
+  rotateX: 1,
+  rotateY: -2,
+  duration: 4,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut",
+});
 
       // --- Schedule Left ---
       const schdLeft = document.querySelectorAll(".schd_lft_bgp");
@@ -90,7 +119,7 @@ const scrollRef = useRef(null);
             trigger: ".schd_lft_bgp",
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none play none",
           },
         });
       }
@@ -107,7 +136,7 @@ const scrollRef = useRef(null);
             trigger: ".schd_rit_bgp",
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none play none",
           },
         });
       }
