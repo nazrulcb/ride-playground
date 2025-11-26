@@ -7,93 +7,102 @@ import Link from "next/link";
 import gsap from "gsap";
 
 function HomeSlider() {
+  const slidesRefs = useRef([]);
+  slidesRefs.current = [];
 
-  const boxRef1 = useRef(null);
-  const boxRef2 = useRef(null);
-  const boxRef3 = useRef(null);
-
-  const refs = [boxRef1, boxRef2, boxRef3];
+  const addToRefs = (el) => {
+    if (el && !slidesRefs.current.includes(el)) {
+      slidesRefs.current.push(el);
+    }
+  };
 
   const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    className: "myCustomCarousel",
-      beforeChange: (oldIndex, newIndex) => {
-      const el = refs[newIndex].current;
-      if (el) {
-         gsap.fromTo(
-            el.children,
-            { y: 40, opacity: 0 },
-            {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.15,   // Animate one by one
-            }
-         );
+    fade: true,
+    beforeChange: (oldIndex, newIndex) => {
+      const el = slidesRefs.current[newIndex];
+      if (el) animateSlide(el);
+    },
+  };
+
+  const animateSlide = (el) => {
+    const image = el.querySelector("img");
+    const texts = el.querySelectorAll(".baner_content > *");
+
+    gsap.fromTo(
+      image,
+      { scale: 1.4, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power3.out" }
+    );
+
+    gsap.fromTo(
+      texts,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
       }
-      }
+    );
   };
 
   useEffect(() => {
-    // Animate the first slide on load
-    gsap.fromTo(
-      boxRef1.current,
-      { y: 250, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "power3.out" }
-    );
+    // Animate first slide on load
+    if (slidesRefs.current[0]) {
+      animateSlide(slidesRefs.current[0]);
+    }
   }, []);
+
+  const slideData = [
+    {
+      img: "../images/slider1.png",
+      title: "Ultimate",
+      subtitle: "Body Workout",
+      desc: "Yoga, pilates, ride and strength",
+    },
+    {
+      img: "../images/slider2.png",
+      title: "Powerful",
+      subtitle: "Fitness Session",
+      desc: "Strength, endurance, and balance",
+    },
+    {
+      img: "../images/slider3.png",
+      title: "Dynamic",
+      subtitle: "Wellness Program",
+      desc: "Movement, meditation, and motivation",
+    },
+  ];
 
   return (
     <section className="home_main_slider">
       <Slider {...settings}>
-        {/* SLIDE 1 */}
-        <div className="single_slider">
-          <img src="../images/slider1.png" alt="img" />
-          <div className="baner_content" ref={boxRef1}>
-            <h2>Ultimate</h2>
-            <h3><span>Body</span> Workout</h3>
-            <p>Yoga, pilates , ride and strength</p>
-            <Link href="">
-              15% off memberships ongoing{" "}
-              <span><img src="../images/rarw2.png" alt="img" /></span>
-            </Link>
+        {slideData.map((slide, index) => (
+          <div className="single_slider" key={index} ref={addToRefs}>
+            <img src={slide.img} alt={`Slide ${index + 1}`} />
+            <div className="baner_content">
+              <h2>{slide.title}</h2>
+              <h3>
+                <span>{slide.subtitle.split(" ")[0]}</span> {slide.subtitle.split(" ")[1]}
+              </h3>
+              <p>{slide.desc}</p>
+              <Link href="">
+                15% off memberships ongoing{" "}
+                <span>
+                  <img src="../images/rarw2.png" alt="arrow" />
+                </span>
+              </Link>
+            </div>
           </div>
-        </div>
-
-        {/* SLIDE 2 */}
-        <div className="single_slider">
-          <img src="../images/slider2.png" alt="img" />
-          <div className="baner_content" ref={boxRef2}>
-            <h2>Ultimate</h2>
-            <h3><span>Body</span> Workout</h3>
-            <p>Yoga, pilates , ride and strength</p>
-            <Link href="">
-              15% off memberships ongoing{" "}
-              <span><img src="../images/rarw2.png" alt="img" /></span>
-            </Link>
-          </div>
-        </div>
-
-        {/* SLIDE 3 */}
-        <div className="single_slider">
-          <img src="../images/slider3.png" alt="img" />
-          <div className="baner_content" ref={boxRef3}>
-            <h2>Ultimate</h2>
-            <h3><span>Body</span> Workout</h3>
-            <p>Yoga, pilates , ride and strength</p>
-            <Link href="">
-              15% off memberships ongoing{" "}
-              <span><img src="../images/rarw2.png" alt="img" /></span>
-            </Link>
-          </div>
-        </div>
+        ))}
       </Slider>
 
       <div className="main_marqee_area">

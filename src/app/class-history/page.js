@@ -41,7 +41,7 @@ function classHistiry() {
               </div>
               <div className='account_details_right'>
                   <div className='account_details_right_all'>
-                      <h2>Account Details</h2>
+                      <h2>Class History</h2>
                       <div className='account_details_right_profilenmimg'>
                           <div className='userprof_top'>
                               <div className='userprof_top_left'>
@@ -59,53 +59,55 @@ function classHistiry() {
                       <div className='account_details_right_profile_info'>
                           <div className='class_history_main'>
                             <h5>Class History</h5>
-                            <div className='class_history_main_all'>
-                                <div className='class_history_main_single'>
-                                    <div className='class_history_main_single_top'>
-                                        <h2>5 Class Credits</h2>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                            <div className='class_history_main_all_main'>
+                                <div className='class_history_main_all'>
+                                    <div className='class_history_main_single'>
+                                        <div className='class_history_main_single_top'>
+                                            <h2>5 Class Credits</h2>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                        </div>
+                                        <div className=''>
+                                            <h3>$32/<span>month</span></h3>
+                                        </div>
                                     </div>
-                                    <div className=''>
-                                        <h3>$32/<span>month</span></h3>
-                                    </div>
+                                    <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
                                 </div>
-                                <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
-                            </div>
-                            <div className='class_history_main_all'>
-                                <div className='class_history_main_single'>
-                                    <div className='class_history_main_single_top'>
-                                        <h2>10 Class Credits</h2>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                <div className='class_history_main_all'>
+                                    <div className='class_history_main_single'>
+                                        <div className='class_history_main_single_top'>
+                                            <h2>10 Class Credits</h2>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                        </div>
+                                        <div className=''>
+                                            <h3>$132/<span>month</span></h3>
+                                        </div>
                                     </div>
-                                    <div className=''>
-                                        <h3>$132/<span>month</span></h3>
-                                    </div>
+                                    <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
                                 </div>
-                                <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
-                            </div>
-                            <div className='class_history_main_all'>
-                                <div className='class_history_main_single'>
-                                    <div className='class_history_main_single_top'>
-                                        <h2>20 Class Credits</h2>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                <div className='class_history_main_all'>
+                                    <div className='class_history_main_single'>
+                                        <div className='class_history_main_single_top'>
+                                            <h2>20 Class Credits</h2>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                        </div>
+                                        <div className=''>
+                                            <h3>$200/<span>month</span></h3>
+                                        </div>
                                     </div>
-                                    <div className=''>
-                                        <h3>$200/<span>month</span></h3>
-                                    </div>
+                                    <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
                                 </div>
-                                <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
-                            </div>
-                            <div className='class_history_main_all'>
-                                <div className='class_history_main_single'>
-                                    <div className='class_history_main_single_top'>
-                                        <h2>30 Class Credits</h2>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                <div className='class_history_main_all'>
+                                    <div className='class_history_main_single'>
+                                        <div className='class_history_main_single_top'>
+                                            <h2>30 Class Credits</h2>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text</p>
+                                        </div>
+                                        <div className=''>
+                                            <h3>$360/<span>month</span></h3>
+                                        </div>
                                     </div>
-                                    <div className=''>
-                                        <h3>$360/<span>month</span></h3>
-                                    </div>
+                                    <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
                                 </div>
-                                <h6><img src='../images/calendar.png' alt='img' /> 12 Jul, 2025</h6>
                             </div>
                           </div>
                       </div>

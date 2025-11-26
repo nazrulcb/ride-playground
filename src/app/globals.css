@@ -2515,12 +2515,33 @@ select:focus {
 }
 .account_details_left {
 	width: 19%;
-	margin: -24px 133px 0 0;
+	margin: 57px 133px 0 0;
 	padding: 0 0 0 55px;
 }
+.account_details_main {
+	overflow: hidden;
+	height: 100vh;
+}
+.class_history_main_all_main {
+	height: 50vh;
+	padding: 0 0 50px;
+	overflow: auto;
+	scroll-behavior: smooth;  /* Smooth scrolling */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none;    /* Hide scrollbar in Firefox */
+}
+.class_history_main_all_main::-webkit-scrollbar, .account_details_right_profilenmimg_main::-webkit-scrollbar {
+  display: none;            /* Hide scrollbar in Chrome, Safari, Opera */
+}
 
-
-
+.account_details_right_profilenmimg_main {
+	scroll-behavior: smooth;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	height: 82vh;
+	padding: 0 0 100px;
+	overflow: auto;
+}
 
 
 }
@@ -3574,7 +3595,7 @@ select:focus {
 	cursor: pointer;
 	z-index: 99;
 	background: #f1c542;
-	border-radius: 0 6px 6px 0;
+	border-radius: 6px 0 0 6px;
 	justify-content: center;
 	align-items: center;
 	width: 41px;
@@ -3582,9 +3603,9 @@ select:focus {
 	padding: 7px;
 	transition: all .7s ease-in-out;
 	display: flex;
-	position: absolute;
-	top: 147px;
-	left: 0;
+	position: fixed;
+	top: 120px;
+	right: 0;
 }
 .side_menu_inn {
 	cursor: pointer;
@@ -3625,6 +3646,15 @@ select:focus {
 @media screen and (max-width: 640px) {
 .main_header, .header_inner_main {
 	padding: 0 15px;
+}
+.account_details_right_profilenmimg_main {
+	padding: 0 0 0px;
+}
+.account_details_left_inner {
+	top: 182px;
+}
+.side_menu_inn {
+	top: 203px;
 }
 .login_page_main {
 	overflow: auto;
@@ -4145,7 +4175,7 @@ select:focus {
 	padding: 0 0 0 33px;
 }
 .side_menu {
-	top: 102px;
+	top: 73px;
 }
 .side_menu_inn {
 	right: -136px;
@@ -4153,6 +4183,22 @@ select:focus {
 .subscription_plan_box {
 	flex-wrap: wrap;
 	margin: 0 0 20px;
+}
+.class_history_main_all_main {
+	height: auto;
+	overflow: inherit;
+}
+.account_details_main {
+	height: auto;
+	overflow: auto;
+}
+.account_details_right_profilenmimg_main {
+	height: auto;
+	padding: 0 0 0;
+	overflow: inherit;
+}
+.account_details_inner {
+	margin: 63px 0 0;
 }
 .subscription_plan_box_sing {
 	width: 100%;
@@ -4178,9 +4224,9 @@ select:focus {
 }
 
 @media screen and (max-width: 430px) {
-	.side_menu_inn {
+.side_menu_inn {
+	top: 207px;
 	right: -136px;
-	top: 128px;
 }
 .account_details_right_all h2 {
 	font-size: 19px;
@@ -4201,8 +4247,8 @@ select:focus {
 	font-size: 16px;
 }
 .side_menu_inn {
+	top: 206px;
 	right: -144px;
-	top: 128px;
 }
 .home_main_slider .slick-prev {
 	left: 33%;
@@ -4229,7 +4275,7 @@ select:focus {
 	padding: 0 0 0 0;
 }
 .side_menu_inn {
-	top: 131px;
+	top: 206px;
 	right: -161px;
 }
 .schd_lft_bgp, .schd_rit_bgp {
@@ -4304,7 +4350,7 @@ select:focus {
 	font-size: 15px;
 }
 .side_menu_inn {
-	top: 131px;
+	top: 206px;
 	right: -168px;
 }
 .schedule_calender_main {

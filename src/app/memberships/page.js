@@ -38,80 +38,81 @@ const [sideMenuOpen, serSideMenuOpen] = useState(false);
               </div>
               <div className='account_details_right'>
                   <div className='account_details_right_all'>
-                      <h2>Account Details</h2>
-                      <div className='account_details_right_profilenmimg'>
-                          <div className='userprof_top'>
-                              <div className='userprof_top_left'>
-                                  <div className='profile_img'>
-                                    <img src='../images/profile.png' alt='img' />
+                      <h2>Membership</h2>
+
+                      <div className='account_details_right_profilenmimg_main'>
+                        <div className='account_details_right_profilenmimg'>
+                            <div className='userprof_top'>
+                                <div className='userprof_top_left'>
+                                    <div className='profile_img'>
+                                      <img src='../images/profile.png' alt='img' />
+                                    </div>
+                                    <div className='profile_dtl'>
+                                      <h3>Rahul Sharma</h3>
+                                      <p>+91 2536 5957 20</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div className='account_details_right_profile_info'>
+                            <div className='subscription_plan_area'>
+                              <h3>Subscriptions Plan</h3>
+                              <div className='subscription_plan_box'>
+
+                                  <div className='subscription_plan_box_sing'>
+                                      <div className='subscription_plan_box_sing_top'>
+                                          <h2>5 Class Credits</h2>
+                                          <h4>$12/<span>month</span></h4>
+                                      </div>
+                                      <p>36 Days remaining</p>
+                                      <button>Cancel Subscription</button>
+                                      <img className='tick_icon' src='../images/tick.png' alt='img' />
                                   </div>
-                                  <div className='profile_dtl'>
-                                     <h3>Rahul Sharma</h3>
-                                     <p>+91 2536 5957 20</p>
+
+                                  <div className='subscription_plan_box_sing'>
+                                      <div className='subscription_plan_box_sing_top'>
+                                          <h2>10 Class Credits</h2>
+                                          <h4>$36/<span>month</span></h4>
+                                      </div>
+                                      <p>36 Days remaining</p>
+                                      <div className='upgradepln'>
+                                          <button>Upgrade</button>
+                                          <p>Learn about this plan</p>
+                                      </div>
                                   </div>
+
                               </div>
-                              
-                          </div>
-                      </div>
-
-                      <div className='account_details_right_profile_info'>
-                          <div className='subscription_plan_area'>
-                             <h3>Subscriptions Plan</h3>
-                             <div className='subscription_plan_box'>
-
-                                <div className='subscription_plan_box_sing'>
-                                    <div className='subscription_plan_box_sing_top'>
-                                        <h2>5 Class Credits</h2>
-                                        <h4>$12/<span>month</span></h4>
-                                    </div>
-                                    <p>36 Days remaining</p>
-                                    <button>Cancel Subscription</button>
-                                    <img className='tick_icon' src='../images/tick.png' alt='img' />
-                                </div>
-
-                                <div className='subscription_plan_box_sing'>
-                                    <div className='subscription_plan_box_sing_top'>
-                                        <h2>10 Class Credits</h2>
-                                        <h4>$36/<span>month</span></h4>
-                                    </div>
-                                    <p>36 Days remaining</p>
-                                    <div className='upgradepln'>
-                                        <button>Upgrade</button>
-                                        <p>Learn about this plan</p>
-                                    </div>
-                                </div>
-
-                             </div>
-                          </div>                         
-                      </div>
+                            </div>                         
+                        </div>
 
 
-                      <div className='account_details_right_profile_info'>
-                          <div className='subscription_plan_area'>
-                             <h3>Payment Methods</h3>
-                             <div className='subscription_plan_box'>
+                        <div className='account_details_right_profile_info'>
+                            <div className='subscription_plan_area'>
+                              <h3>Payment Methods</h3>
+                              <div className='subscription_plan_box'>
 
-                                <div className='subscription_plan_box_sing payment_method_box'>
-                                    <div className='subscription_plan_box_sing_top'>
-                                        <h2>Visa Card</h2>
-                                        <img src='../images/chip2.png' alt='img' />
-                                    </div>
-                                    <p>Benedict Cumb... 1234**** ****6958</p>
-                                    <div className='bottom_exp'>
-                                        <h5>Exp 06/05</h5>
-                                        <img src='../images/visa2.png' alt='img' />
-                                    </div>
-                                </div>
+                                  <div className='subscription_plan_box_sing payment_method_box'>
+                                      <div className='subscription_plan_box_sing_top'>
+                                          <h2>Visa Card</h2>
+                                          <img src='../images/chip2.png' alt='img' />
+                                      </div>
+                                      <p>Benedict Cumb... 1234**** ****6958</p>
+                                      <div className='bottom_exp'>
+                                          <h5>Exp 06/05</h5>
+                                          <img src='../images/visa2.png' alt='img' />
+                                      </div>
+                                  </div>
 
-                                <div className='subscription_plan_box_sing payment_add_button'>
-                                    <img src='../images/plus.png' alt='img' />
-                                </div>
+                                  <div className='subscription_plan_box_sing payment_add_button'>
+                                      <img src='../images/plus.png' alt='img' />
+                                  </div>
 
-                             </div>
-                          </div>                         
-                      </div>
-
-
+                              </div>
+                            </div>                         
+                        </div>
+                    </div>
 
                   </div>
               </div>
