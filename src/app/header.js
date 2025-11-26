@@ -57,7 +57,7 @@ console.log("Token: ", token);
 
     // redirect if token exists
     if (savedToken) {
-      router.push("/account-details");
+      router.push("/");
     }
   }, [setToken]);
 
@@ -112,7 +112,7 @@ console.log("Token: ", token);
                    ) : (
                   
                   <div className={token ? "login_reg_lnk login_hide" : "login_reg_lnk"}>
-                    <Link href={'/login'}><img src='../images/lock.png' alt='Key' /> Login / Register</Link>
+                    <Link href={'/login'}><img src='../images/lock.png' alt='Key' /> Login</Link>
                   </div>
                   
                   

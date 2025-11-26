@@ -29,94 +29,161 @@ const pathname = usePathname(); // triggers on page change
     // Wait for DOM to render
     const id = requestAnimationFrame(() => {
 
-      // Kill previous triggers to avoid duplicates
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-      // --- Home Class Cards ---
-      const homeCards = document.querySelectorAll(".home_class_single");
-      if (homeCards.length) {
-        gsap.from(homeCards, {
-          opacity: 0,
-          y: 80,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".all_home_class",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+gsap.from(".home_class_single", {
+        opacity: 0,
+        y: 40,
+        rotateX: 10,               // subtle 3D tilt
+        scale: 0.92,               // soft zoom
+        filter: "blur(10px)",      // smooth blur reveal
+        duration: 1.4,
+        ease: "power3.out",
+        stagger: {
+          amount: 1.2,            // overall timing
+          from: "start",          // top-to-bottom
+        },
+        scrollTrigger: {
+          trigger: ".all_home_class",
+          start: "top 80%",
+          end: "bottom 30%",
+          scrub: false,
+          once: true,             // animation plays once
+        },
+        onComplete: () => {
+          gsap.to(".home_class_single", { filter: "blur(0px)" });
+        }
+      });
+
+
 
       // --- Class Background ---
-      const classBg = document.querySelectorAll(".clas_bg_main");
-      if (classBg.length) {
-        gsap.from(classBg, {
-          opacity: 0,
-          x: -120,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".all_home_class",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+gsap.from(".clas_bg_main", {
+  opacity: 0,
+  scale: 0.92,
+  y: 40,
+  //filter: "blur(20px) brightness(0.6)",
+  duration: 1.8,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".clas_bg_main",
+    start: "top 85%",
+    once: true,
+  },
+  onComplete: () => {
+    // Smooth floating premium effect
+    gsap.to(".clas_bg_main", {
+      y: -18,
+      scale: 0.96,
+      duration: 4,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }
+});
 
-      // --- About Options Right ---
-      const aboutOpts = document.querySelectorAll(".single_aboutopt");
-      if (aboutOpts.length) {
-        gsap.from(aboutOpts, {
-          opacity: 0,
-          y: 80,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".about_area_main_right",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+// Premium parallax tilt effect (micro movement)
+gsap.to(".clas_bg_main", {
+  rotateX: 1,
+  rotateY: -2,
+  duration: 4,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut",
+});
 
-      // --- About Left ---
-      const aboutLeft = document.querySelectorAll(".about_area_main_left");
-      if (aboutLeft.length) {
-        gsap.from(aboutLeft, {
-          opacity: 0,
-          x: -120,
-          duration: 1.5,
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: ".about_area_main_right",
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
-        });
-      }
+ 
+ // IMAGE premium fade + slight zoom-out
+      gsap.from(".about_area_main_left img", {
+        opacity: 0,
+        scale: 1.15,
+        x: -80,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about_area_main_inner",
+          start: "top 75%",
+        },
+      });
 
-      // --- Team Instructor ---
-      const teamCards = document.querySelectorAll(".team_instrat_all");
-      if (teamCards.length) {
-        gsap.from(teamCards, {
-          x: 200,
+      // HEADINGS stagger with slide-up
+      gsap.from(".about_area_main_right h5, .about_area_main_right h2, .about_area_main_right h4", {
+        opacity: 0,
+        y: 40,
+        duration: 1.4,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".about_area_main_inner",
+          start: "top 70%",
+          once: false,
+        },
+      });
+
+      // OPTION BOXES — premium floating reveal
+      gsap.from(".single_aboutopt", {
+        opacity: 0,
+        y: 50,
+        duration: 1.3,
+        ease: "power2.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: ".about_area_main_right",
+          start: "top 60%",
+          once: false,
+        },
+      });
+
+   gsap.from(".team_area_main_section_left h4, .team_area_main_section_left h2, .team_area_main_section_left p", {
+        opacity: 0,
+        y: 40,
+        stagger: 0.18,
+        duration: 1.4,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".team_area_main_section",
+          start: "top 75%",
+          once: true
+        }
+      });
+
+      // MAIN IMAGE ON TOP (Ride Playground)
+      gsap.from(".rid_plgnd", {
+        opacity: 0,
+        scale: 1.15,
+        y: -50,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".team_area_main_section",
+          start: "top 80%",
+          once: true
+        },
+      });
+
+      // INSTRUCTOR CARDS
+      const cards = gsap.utils.toArray(".single_instractor");
+
+      cards.forEach((card, i) => {
+        // Random premium direction
+        const dir = i % 2 === 0 ? 80 : -80;
+
+        gsap.from(card, {
           opacity: 0,
-          duration: 1.2,
-          stagger: 0.25,
+          y: 60,
+          x: dir,
+          scale: 0.9,
+          duration: 1.3,
+          delay: i * 0.1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".team_instrat_all",
+            trigger: ".team_area_main_section_right",
             start: "top 70%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
-          },
+            once: true
+          }
         });
-      }
+      });
 
       // --- Testimonials Zoom-In ---
       const testimonials = document.querySelectorAll(".testimonials_main_section");
@@ -154,14 +221,29 @@ const pathname = usePathname(); // triggers on page change
         });
       }
 
+
+
+ 
+
+
       // Refresh ScrollTrigger positions
       ScrollTrigger.refresh();
     });
 
     return () => cancelAnimationFrame(id);
+
+
+
+    
+
+
+
+
+
+
   }, [pathname]);
 
-  //return null; // This component handles only animations
+
 
 
 

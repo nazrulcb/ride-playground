@@ -36,6 +36,11 @@ select:focus {
 	height: 80px;
 	padding: 0 100px;
 	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	transition: ease-in-out 0.6s;
 }
 .login_reg_lnk a img {
 	width: 20px;
@@ -47,6 +52,18 @@ select:focus {
 }
 .head_logo a img {
 	width: 96px;
+	transition: all .6s ease-in-out;
+}
+.header_inner_main.sticky_header .head_logo a img {
+	width: 80px;
+	transition: ease-in-out 0.6s;
+}
+.main_header.sticky_header .head_logo a img {
+	width: 80px;
+	transition: ease-in-out 0.6s;
+}
+.main_header.sticky_header {
+	height: 70px;
 }
 .main_menu ul li a {
 	color: #fff;
@@ -59,10 +76,11 @@ select:focus {
 	color: #fff;
 }
 .header_inner {
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	display: flex;
+	transition: ease-in-out 0.6s;
 }
 .header_lrft {
 	display: flex;
@@ -766,11 +784,12 @@ select:focus {
 	transform: translate(0, -50%);
 }
 .header_inner_main {
-	position: fixed;
 	z-index: 99;
 	width: 100%;
-	padding: 11px 100px 0;
-	transition: ease-in-out 0.6s;
+	height: 70px;
+	padding: 0 100px;
+	transition: all .6s ease-in-out;
+	position: fixed;
 }
 .main_header.sticky_header {
 	background: #000;
@@ -2326,6 +2345,25 @@ select:focus {
 .homeclass_area_inner {
 	padding: 0 100px 0 140px;
 }
+.login_page_main {
+	height: 100vh;
+	overflow: hidden;
+}
+.login_right_area_register {
+	top: 15%;
+}
+.login_left_area_inn img {
+	width: 233px;
+}
+.log_lft_bg {
+	width: 39%;
+	height: 91vh;
+	bottom: -72px;
+}
+.login_left_area_inn {
+	top: 176px;
+	left: 100px;
+}
 .single_class {
 	top: 25%;
 }
@@ -2349,6 +2387,29 @@ select:focus {
 }
 .home_main_slider .slick-prev {
 	left: 77%;
+	top: 83%;
+}
+.home_main_slider .slick-arrow.slick-next {
+	top: 83%;
+}
+.main_marqee_area {
+	font-size: 30px;
+}
+.baner_content h2 {
+	font-size: 110px;
+}
+.baner_content h3 {
+	font-size: 60px;
+}
+.baner_content p {
+	font-size: 26px;
+}
+.membrship_btn a {
+	width: 179px;
+	font-size: 14px;
+}
+.main_menu ul li a {
+	font-size: 14px;
 }
 .schd_lft_bgp, .schd_rit_bgp {
 	top: -160px;
@@ -2498,6 +2559,10 @@ select:focus {
 .header_inner_main, .main_header {
 	padding: 0 50px 0;
 }
+.login_left_area_inn {
+	top: 160px;
+	left: 50px;
+}
 .subscription_plan_box_sing {
 	width: 47%;
 }
@@ -2624,6 +2689,24 @@ select:focus {
 @media screen and (max-width: 1280px) {
 .baner_content h2 {
 	font-size: 110px;
+}
+.login_right_area {
+	width: 34%;
+	top: 36%;
+	right: 14%;
+}
+.login_left_area_inn img {
+	width: 210px;
+}
+.login_left_area_inn {
+	top: 166px;
+	left: 50px;
+}
+.mid_text h2 {
+	font-size: 44px;
+}
+.mid_text p {
+	font-size: 21px;
 }
 .schd_lft_bgp, .schd_rit_bgp {
 	top: -133px;
@@ -3171,6 +3254,41 @@ select:focus {
 	top: 0;
 	left: -105%;
 }
+.login_left_area_inn img {
+	width: 170px;
+}
+.mid_text h2 {
+	font-size: 32px;
+}
+.mid_text p {
+	font-size: 18px;
+}
+.login_left_area_inn {
+	top: 202px;
+}
+.regis_btn_area a {
+	padding: 13px 23px;
+	font-size: 14px;
+}
+.login_right_area {
+	width: 43%;
+	right: 9%;
+}
+.login_right_area_register {
+	width: 52%;
+	top: 16%;
+	right: 5%;
+}
+.checkarea span {
+	font-size: 13px;
+}
+.css-1jqq78o-placeholder {
+	font-size: 13px;
+}
+.login_right_area_register h2 {
+	margin: 0 0 16px;
+	font-size: 23px;
+}
 .account_details_left {
 	width: 24%;
 	margin: -62px 79px 0 0;
@@ -3501,6 +3619,12 @@ select:focus {
 .main_header, .header_inner_main {
 	padding: 0 15px;
 }
+.login_page_main {
+	overflow: auto;
+}
+.login_left_area {
+	position: inherit;
+}
 .class_history_main_all {
 	margin: 0 0 7px;
 	padding: 17px 21px;
@@ -3511,7 +3635,52 @@ select:focus {
 .class_history_main_single_top {
 	width: 70%;
 }
-
+.login_right_area_register {
+	position: inherit;
+}
+.log_lft_bg {
+	display: none;
+}
+.login_left_area_inn {
+	position: inherit;
+	background: #000;
+	padding: 75px 15px 23px;
+}
+.login_left_area_inn img {
+	display: none;
+}
+.regis_btn_area p {
+	margin: 0 21px 0 0;
+}
+.login_right_area_register {
+	width: 100%;
+	padding: 19px 11px 30px;
+}
+.login_right_area_register form .input_feild {
+	width: 49%;
+	margin: 0 0 13px;
+}
+.input_feild.phone_count {
+	width: 100% !important;
+}
+.login_right_area {
+	width: 100%;
+	position: inherit;
+	padding: 17px 15px 34px;
+}
+.submt_btn {
+	width: 100%;
+	margin: 0 0 0 0;
+}
+.birthday_feild {
+	margin: 0 0 0 0;
+}
+.regis_btn_area {
+	margin: 32px 0 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
 .account_details_inner {
 	padding: 32px 0 5px;
 }
