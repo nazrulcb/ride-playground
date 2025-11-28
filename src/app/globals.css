@@ -2327,10 +2327,63 @@ select:focus {
 
 
 /* ============================= Responsive Css Start ================================ */
+@media screen and (max-width: 1600px) {
+.head_logo a img {
+	width: 80px;
+}
+.main_header {
+	height: 70px;
+}
+.account_details_right_all h2 {
+	margin: 35px 0 40px;
+}
+.subscription_plan_box_sing_top h2 {
+	margin: 0 !important;
+}
+.class_history_main_single_top h2 {
+	font-size: 24px;
+	margin: 0 0 10px;
+}
+.class_history_main_single_top p {
+	font-size: 16px;
+}
+
+
+}
 
 @media screen and (max-width: 1540px) {
 .homeclass_area_inner {
 	padding: 0 100px 0 140px;
+}
+.account_details_right_all h2 {
+	margin: 0 0 40px;
+}
+.profile_img img {
+	width: 68px;
+}
+.profile_dtl h3 {
+	margin: 0 0 4px;
+	font-size: 20px;
+}
+.userprof_top {
+	padding: 0 0 22px;
+}
+.account_details_right_profile_info_emlphon_sing {
+	padding: 23px 0;
+}
+.account_details_right_profile_info_emlphon_sing p img {
+	width: 23px;
+	margin: 0 8px 0 0;
+}
+.date_address_profile_sing h4 img {
+	width: 20px;
+	margin: 0 8px 0 0;
+}
+.date_address_profile {
+	padding: 28px 0;
+}
+.date_address_profile_sing h4 {
+	font-size: 18px;
 }
 .login_page_main {
 	height: 100vh;
