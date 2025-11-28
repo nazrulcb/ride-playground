@@ -2347,6 +2347,141 @@ select:focus {
 .class_history_main_single_top p {
 	font-size: 16px;
 }
+.blog_heading h3 {
+	width: 340px;
+	font-size: 21px;
+}
+.blog_cret_date p {
+	margin: 0 9px;
+}
+.blog_cret_date {
+	width: 276px;
+	height: 44px;
+}
+.blogdetail_area_left h2 {
+	padding: 115px 0 9px 100px;
+}
+.home_main_slider .slick-prev {
+	top: 84%;
+	left: 77.6%;
+}
+.home_main_slider .slick-arrow.slick-next {
+	top: 84%;
+}
+.main_marqee_area {
+	font-size: 27px;
+}
+.clas_bg {
+	width: 100%;
+	height: 420px;
+}
+.book_btn {
+	margin: 27px auto 0;
+}
+.schd_lft_bgp {
+	top: -165px;
+}
+.schd_rit_bgp {
+	top: -165px;
+}
+.class_schedule_detail_right {
+	padding: 100px 50px 0;
+}
+.class_schedule_detail_right h2 {
+	margin: 0 0 8px;
+	font-size: 27px;
+}
+.class_schedule_detail_right h3 {
+	font-size: 16px;
+}
+.class_schedule_detail_right h3 img {
+	width: 16px;
+	margin: 0 6px 0 0;
+	position: relative;
+	top: 2px;
+}
+.dt_tm_addrs {
+	margin: 30px 0 0;
+}
+.class_schedule_detail_left {
+	width: 40%;
+}
+.class_schedule_detail_left img {
+	object-fit: cover;
+}
+.class_schedule_detail_right {
+	width: 60%;
+}
+.overview_area h3 {
+	margin: 10px 0 6px;
+	font-size: 23px !important;
+}
+.overview_area p {
+	font-size: 15px;
+	line-height: 22px;
+}
+.booking_area h3 {
+	margin: 22px 0 7px;
+	font-size: 20px;
+}
+.slot_available h4 {
+	font-size: 40px;
+}
+.booknow_btn {
+	width: 222px;
+	margin: 31px 0 0;
+}
+.slot_available {
+	width: 180px;
+	margin: 24px 0 0;
+}
+.class_schedule_detail_main_area {
+	overflow: hidden;
+}
+.close_icon {
+	top: 81px;
+	right: 25px;
+}
+.account_details_right_profilenmimg_main {
+	scroll-behavior: smooth;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	height: 82vh;
+	padding: 0 0 100px;
+	overflow: auto;
+}
+.class_history_main_all_main {
+	scroll-behavior: smooth;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	height: 50vh;
+	padding: 0 0 50px;
+	overflow: auto;
+} 
+.account_details_inner {
+	margin: 63px 0 0;
+	overflow: hidden;
+}
+.account_details_logout {
+	margin: 73px 0 0;
+}
+.login_left_area_inn {
+	top: 195px;
+}
+.login_left_area_inn img {
+	width: 210px;
+	margin: 0 0 25px;
+}	
+.login_right_area_register h2 {
+	margin: 0 0 20px;
+	font-size: 28px;
+}
+.login_right_area_register {
+	width: 40%;
+	top: 14%;
+	right: 10%;
+}
+
 
 
 }
@@ -2420,10 +2555,13 @@ select:focus {
 	top: 17px;
 }
 .about_area_main {
-	padding: 57px 100px 26px;
+	padding: 100px 100px 26px;
 }
 .about_area_main_left img {
 	bottom: -31px;
+}
+.carousel-wrapper {
+	padding: 67px 0 0;
 }
 .home_main_slider .slick-prev {
 	left: 77%;
@@ -2620,6 +2758,9 @@ select:focus {
 .header_inner_main, .main_header {
 	padding: 0 50px 0;
 }
+.clas_bg {
+	height: auto;
+}
 .login_left_area_inn {
 	top: 160px;
 	left: 50px;
@@ -2641,7 +2782,13 @@ select:focus {
 	width: 53%;
 }
 .about_area_main {
-	padding: 57px 50px 40px;
+	padding: 115px 50px 40px;
+}
+.carousel-item {
+	--width: clamp(150px, 30vw, 240px);
+	--height: clamp(200px, 40vw, 344px);
+	background-position: center top;
+	background-size: cover;
 }
 .about_area_main_left img {
 	bottom: -69px;
@@ -2760,8 +2907,12 @@ select:focus {
 	width: 210px;
 }
 .login_left_area_inn {
-	top: 166px;
+	top: 178px;
 	left: 50px;
+}
+.blog_heading {
+	top: 26px;
+	right: 20px;
 }
 .mid_text h2 {
 	font-size: 44px;
@@ -2902,6 +3053,9 @@ select:focus {
 	top: -113px;
 	left: 36px;
 	width: 75%;
+}
+.blog_page_main_all .blog_page_main_single:nth-child(2) .blog_cret_date {
+	width: 221px;
 }
 .home_class_single {
 	width: 30%;
@@ -3151,9 +3305,9 @@ select:focus {
 	font-size: 16px;
 }
 .blog_page_main_all .blog_page_main_single:nth-child(2) .blog_button a {
-	width: 80px;
-	height: 60px;
 	border-radius: 22px 0;
+	width: 67px;
+	height: 60px;
 }
 .blog_page_main_all .blog_page_main_single:nth-child(2) .blog_button a::before {
 	top: 16px;
@@ -3314,6 +3468,12 @@ select:focus {
 	position: fixed;
 	top: 0;
 	left: -105%;
+}
+.ourvalue_area_main_section, .blog_page_main_area, .subscription_main_page_area {
+	padding: 103px 50px 44px;
+}
+.blogdetail_area_left h2 {
+	padding: 107px 0 9px 50px;
 }
 .login_left_area_inn img {
 	width: 170px;
@@ -3679,6 +3839,13 @@ select:focus {
 @media screen and (max-width: 640px) {
 .main_header, .header_inner_main {
 	padding: 0 15px;
+}
+.blog_page_main_single {
+	transform: translate(0px, 0px) !important;
+}
+.blog_page_main_area_inner h2 {
+	margin: 50px 0 16px;
+	font-size: 26px;
 }
 .home_main_slider {
 	height: 64vh;
@@ -4156,7 +4323,7 @@ select:focus {
 	right: 69px;
 }
 .blogdetail_area_left h2 {
-	padding: 27px 0 9px 15px;
+	padding: 90px 0 9px 15px;
 }
 .blog_cret_date_detl {
 	padding: 0 0 20px 15px;
@@ -4297,6 +4464,9 @@ select:focus {
 	top: 207px;
 	right: -136px;
 }
+.carousel-wrapper {
+	padding: 35px 0 0;
+}
 .account_details_right_all h2 {
 	font-size: 19px;
 }
@@ -4308,6 +4478,9 @@ select:focus {
 @media screen and (max-width: 414px) {
 .testimonials_main_body_main .slick-arrow.slick-next {
 	left: 43%;
+}
+.account_option_area {
+	margin: 0 7px 0 0;
 }
 .foot_sing {
 	width: 65%;
@@ -4345,6 +4518,18 @@ select:focus {
 @media screen and (max-width: 375px) {
 .joinchnl {
 	padding: 0 0 0 0;
+}
+.account_option_area {
+	margin: 0 8px 0 0;
+}
+.head_logo a img {
+	width: 66px !important;
+	position: relative;
+	top: 2px;
+}
+.login_reg_lnk a img {
+	width: 17px;
+	margin: 0 3px 0 0;
 }
 .single_instractor h2 {
 	font-size: 18px;

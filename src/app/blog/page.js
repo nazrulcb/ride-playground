@@ -91,6 +91,9 @@ function Blog() {
                 <p><img src='../images/user.png' alt='img' /> By : Admin</p>
                 <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
               </div>
+              <div className='blog_button'>
+                  <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
+              </div>
             </div>
 
             <div className='blog_page_main_single'>
@@ -101,6 +104,9 @@ function Blog() {
               <div className='blog_cret_date'>
                 <p><img src='../images/user.png' alt='img' /> By : Admin</p>
                 <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
+              <div className='blog_button'>
+                  <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
               </div>
             </div>
 
@@ -113,6 +119,9 @@ function Blog() {
                 <p><img src='../images/user.png' alt='img' /> By : Admin</p>
                 <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
               </div>
+              <div className='blog_button'>
+                  <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
+              </div>
             </div>
 
             <div className='blog_page_main_single'>
@@ -123,6 +132,9 @@ function Blog() {
               <div className='blog_cret_date'>
                 <p><img src='../images/user.png' alt='img' /> By : Admin</p>
                 <p><img src='../images/calendar.png' alt='img' /> Sept 25, 2025</p>
+              </div>
+              <div className='blog_button'>
+                  <Link href={'/blog/blog-details'}><img src='../images/rarw2.png' alt='img' /></Link>
               </div>
             </div>
 
