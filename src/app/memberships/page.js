@@ -1,14 +1,21 @@
 "use client";
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
 
 function memberships() {
 
 const [sideMenuOpen, serSideMenuOpen] = useState(false);
 
+
+
+
+
+
+
   return (
     <>
-       <section className='account_details_main'>
+       <section className="account_details_main">
           <img className={sideMenuOpen === true ? "prof_lft_bg active_sidemenu" : "prof_lft_bg"} src='../images/dashboard_grp.png' alt='img' />
           <div className='account_details_inner'>
             <div className={sideMenuOpen === true ? "side_menu active_sidemenu" : "side_menu"} onClick={() => serSideMenuOpen(true)}><svg

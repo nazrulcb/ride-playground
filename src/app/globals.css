@@ -807,7 +807,7 @@ select:focus {
 	background: #000;
 	transition: ease-in-out 0.6s;
 	position: fixed;
-	z-index: 99;
+	z-index: 999999;
 	width: 100%;
 	transition: ease-in-out 0.6s;
 }

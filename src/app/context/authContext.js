@@ -1,47 +1,60 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const router = useRouter();
+  const pathname = usePathname();
 
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(null);
+  const [endpoint, setEndpoint] = useState("");
 
-
-  // Load token on first render
-useEffect(() => {
-    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+  // Load token when app loads
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    if (savedToken) {
+      setToken(savedToken);
     }
   }, []);
+
+  // Update endpoint automatically when route changes
+  useEffect(() => {
+    if (pathname) {
+      const cleanPath = pathname.startsWith("/")
+        ? pathname.slice(1)
+        : pathname;
+      setEndpoint(cleanPath || "");
+    }
+  }, [pathname]);
 
   // Login function
   const login = (tokenValue) => {
     localStorage.setItem("token", tokenValue);
-    setToken(tokenValue);      // <-- re-render immediately
-    router.push("/"); // <-- redirect works without refresh
+    setToken(tokenValue);
+    router.push("/");
   };
 
   // Register function
-const register = (tokenValue) => {
-  localStorage.setItem("token", tokenValue);
-  setToken(tokenValue);         // triggers UI update instantly
-  router.push("/"); // redirect after successful register
-};
+  const register = (tokenValue) => {
+    localStorage.setItem("token", tokenValue);
+    setToken(tokenValue);
+    router.push("/");
+  };
 
   // Logout function
   const logout = () => {
     localStorage.removeItem("token");
-    setToken();            // <-- re-render immediately
-    router.push("/");     // <-- redirect works instantly
+    setToken(null);
+    router.push("/");
   };
 
+  
+
   return (
-    <AuthContext.Provider value={{ token, login, logout, register }}>
+    <AuthContext.Provider value={{ token, endpoint, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );
