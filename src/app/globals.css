@@ -3840,6 +3840,9 @@ select:focus {
 .main_header, .header_inner_main {
 	padding: 0 15px;
 }
+img.prof_lft_bg {
+    height: 100vh;
+}
 .subscription_main_page_area {
     padding: 90px 15px 34px !important;
   }
@@ -4612,6 +4615,9 @@ select:focus {
 @media screen and (max-width: 360px) {
 .baner_content h2 {
 	font-size: 50px;
+}
+.account_details_left_inner {
+    top: 122px;
 }
 .foot_sing {
 	width: 71%;
