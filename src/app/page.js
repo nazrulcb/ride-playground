@@ -229,10 +229,12 @@ floatingTl.to(".clas_bg_main", {
     <>
        <HomeSlider />
        <section className="homeclass_area_main">
+
         <img className="clas_bg_main" src='../images/home_graphic.png' alt='img' />
+
+
           <div className="homeclass_area_inner">
               <div className="all_home_class">
-
                <div className="home_class_single">
                   <img className="clas_bg" src='../images/class_brap.png' alt='img' />
                   <img className="staff_img" src='../images/staff.png' alt='img' />

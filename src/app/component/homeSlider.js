@@ -87,7 +87,8 @@ function HomeSlider() {
       <Slider {...settings}>
         {slideData.map((slide, index) => (
           <div className="single_slider" key={index} ref={addToRefs}>
-            <img src={slide.img} alt={`Slide ${index + 1}`} />
+            
+              <img src={slide.img} alt={`Slide ${index + 1}`} />
             <div className="baner_content">
               <h2>{slide.title}</h2>
               <h3>

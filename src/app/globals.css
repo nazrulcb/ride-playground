@@ -1510,7 +1510,7 @@ select:focus {
 }
 .subscription_main_page_area {
 	background: #141414;
-	padding: 80px 100px;
+	padding: 130px 100px 80px;
 }
 .subscrip_body ul li img {
 	width: 9px;
@@ -3840,6 +3840,9 @@ select:focus {
 .main_header, .header_inner_main {
 	padding: 0 15px;
 }
+.subscription_main_page_area {
+    padding: 90px 15px 34px !important;
+  }
 .blog_page_main_single {
 	transform: translate(0px, 0px) !important;
 }
@@ -4035,7 +4038,7 @@ select:focus {
 	display: none;
 }
 .about_area_main {
-	padding: 35px 19px 9px;
+	padding: 92px 19px 9px;
 }
 .team_area_main_section_inner {
 	flex-wrap: wrap;
